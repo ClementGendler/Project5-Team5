@@ -4,7 +4,7 @@ Identify potential Covid hotspots at the US state level, attempt to utilize gove
 
 Data sets we usee:  
 - Covid19 database on GitHub - https://github.com/GoogleCloudPlatform/covid-19-open-data
-- Shape files from US Census - CLEMENT
+- Shape files from US Census - https://www.kaggle.com/washimahmed/usa-latlong-for-state-abbreviations 
 - Covid-related Google search trends - COVID-cast from Carnegie-Mellon's Delphi Group, https://covidcast.cmu.edu/?sensor=ght-smoothed_search&level=state&date=20201025&signalType=value&encoding=color&mode=export&region=42003
 
 
@@ -15,7 +15,7 @@ This study utilizes Covid19 daily data on confimed cases, population, weather, a
 
 ## Data Description and Data Dictionary
 
-For data collection, we used selected several fields available from the Covid 19 Open Data site.  Of the 108 fields offered, we honed in on the fields listed in the data dictionary below.   
+For data collection, we used selected several fields available from the Covid 19 Open Data site and Google Health Trends.  Of the 113 fields offered, we honed in on the fields listed in the data dictionary below.   
 
 
 
@@ -35,6 +35,8 @@ For data collection, we used selected several fields available from the Covid 19
 | rainfall | amount of rain | 
 | dew_point | dew point (F) |
 | relative_humidity | humidity level |
+| google | google health search trends by day by state |
+
 
 
 We used data from Covid 19 Open Data site, which compiles data for countries world wide, including select provinces such as US states: 
@@ -57,7 +59,7 @@ Our original objective was to work at the county level, as it is provides a more
 
 ### Quantitative Modeling for Prediction
 
-For the first pass, we tried SARIMA and ARIMA models, however, the high error levels motivated us to look elsewhere for other modeling options.  This study utilizes the Facebook Prophet model and the "IID Model", based on assumptions of multivariate normal distribution.  
+For the first pass, we tried SARIMA and ARIMA models, however, the high error levels motivated us to look elsewhere for other modeling options.  This study utilizes the Facebook Prophet model and the "IID Model", based on assumptions of multivariate normal distribution.  "IID" stands for independent, and individually distributed.
 
 
 **Facebook Prophet model** is used by the financial industry, and has the benefit of seasonality assumptions embedded in the model. However, there are some downsides to the Prophet model as well:  
@@ -69,25 +71,37 @@ For the first pass, we tried SARIMA and ARIMA models, however, the high error le
 **The IID model** offers more precision in several ways:
 - enables us to use traditional modeling techniques (regression in particular)
 - allows us to model each individual state using Gridsearch to find the best fitting model for each state. 
+To use the IID model, we created a 7-day lag variable for all features.
 
+
+The IID model predicted hotspots in five states for the first week of November, 2020:  Alabama, Wisconsin, Tennessee, North Dakota.  The fifth predicted hot-spot state was New Mexico, which has enjoyed low per-capita Covid19 infections thus far.  Furthermore, IID model predicted the west coast (CA, OR, WA) would not be hot-spots.  
 
 
 ### Modeling for Prediction
-With so many variables, we turned to models to help us understand which of the inputs was more determanative of the model.  Using Random Forest, we generated a feature importance plot.
+With so many variables, we turned to Random Forest to help us understand which of the inputs was more determinative of the model.  Using Random Forest, we generated a feature importance plot, which showed that population was the most important feature when looking at the nation as a whole.  There were a few states, however, for which Google queries were also a top-5 predictor of infections, such as Arkansas.
+
+
+### Mapping of Predictions (see presentation file, pages 5-6)
+Having quantified our predictions, we vizualized them on maps using Folium in order to illustrate the impact.  Since our aspiration was to predict specific local hotspots, we expected to see very localized hotspot areas on our map.  The Facebook Prophet model generated generalized predictions (page 5), which are rendered as low-level hotspots in all areas of the country.  The IID model, however, showed more concentrated hotspots.
 
 
 
 # Conclusions, Recommendations, Further Steps
 
 
-1. ...
-1. ...
-1. ...
+1. IID model predicted hotspots in five states for the first week of November, 2020:  Alabama, Wisconsin, Tennessee, North Dakota, and New Mexico.  
+1. Furthermore, IID model predicted the west coast (CA, OR, WA) would not be hot-spots.  
+
+The most important refinements to this work would be:
+1. Test and apply some best-practice epidemiology models to account for the unique dynamics of disease spread and society dynamics (e.g., government response, mobility).
+2. Clean, align, and add mobility and government response data to the model to inject those dynamics, and explain more of the variance.
+
+
 
 
 # Appendix
 **Table of Contents**
 
-| Item | Description |
+| File | Type | Description |
 | --- | --- |
 
