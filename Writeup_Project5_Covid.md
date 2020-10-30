@@ -27,7 +27,7 @@ For data collection, we used selected several fields available from the Covid 19
 | new_deceased | number of deaths due to Covid19 |
 | total_confirmed | total cumulative confirmed infections for each state |
 | total_deceased | total cumulative deaths due to Covid19 per state | 
-| population | total state population, includes detail on age brackets from 0 to 80 years and older | 
+| population | total state population, includes detail on age brackets from 0 to 80 years and older, by decade | 
 | population_male | total state population of males only |   
 | population_female | total state population of females only |
 | mobility_workplaces | categorical variable for the amount of time spent in workplaces* |
@@ -40,10 +40,10 @@ For data collection, we used selected several fields available from the Covid 19
 
 
 We used data from Covid 19 Open Data site, which compiles data for countries world wide, including select provinces such as US states: 
->  author = "Oscar Wahltinez and Matt Lee and Anthony Erlinger and Mayank Daswani and Pranali Yawalkar and Kevin Murphy and Michael Brenner",
->  year = 2020,
->  title = "COVID-19 Open-Data: curating a fine-grained, global-scale data repository for SARS-CoV-2",
->  url = {https://github.com/GoogleCloudPlatform/covid-19-open-data}
+>  - author = "Oscar Wahltinez and Matt Lee and Anthony Erlinger and Mayank Daswani and Pranali Yawalkar and Kevin Murphy and Michael Brenner",
+>  - year = 2020,
+>  - title = "COVID-19 Open-Data: curating a fine-grained, global-scale data repository for SARS-CoV-2",
+>  - url = {https://github.com/GoogleCloudPlatform/covid-19-open-data}
 
 To supplement our quantitative data, we utilized count of COVID-related search data from Google to understand if they search could be a  leading indicator of infection.  The list from COVID-cast from Carnegie-Mellon's Delphi Group proved quite useful: https://covidcast.cmu.edu/?sensor=ght-smoothed_search&level=state&date=20201025&signalType=value&encoding=color&mode=export&region=42003
 
