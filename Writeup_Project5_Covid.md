@@ -86,7 +86,7 @@ Having quantified our predictions, we vizualized them on maps using Folium in or
 
 
 
-# Conclusions, Recommendations, Further Steps
+## Conclusions, Recommendations, Further Steps
 
 
 1. IID model predicted hotspots in five states for the first week of November, 2020:  Alabama, Wisconsin, Tennessee, North Dakota, and New Mexico.  
@@ -94,19 +94,26 @@ Having quantified our predictions, we vizualized them on maps using Folium in or
 
 The most important refinements to this work would be:
 1. Test and apply some best-practice epidemiology models to account for the unique dynamics of disease spread and society dynamics (e.g., government response, mobility).
-2. Clean, align, and add mobility and government response data to the model to inject those dynamics, and explain more of the variance.
+1. Clean, align, and add mobility and government response data to the model to inject those dynamics, and explain more of the variance.
 
 
 
 
-# Appendix
+## Appendix
 **Table of Contents**
 
 | File | Type | Description |
 | --- | --- | --- |
 | README | markdown | Brief description of the project |
 | Writeup_Project5_Covid | markdown | Detailed write up of methods and findings used for the project |
+| Mapping | .ipynb | Code for creating heatmaps from our dataset and predictions |
+| Final_New_Preds_With_Longitude_Latitude | .csv | Combined predictions and geo-location data for use in mapping |
+| Google-searches | .ipynb | Collection of Google data by state/day to include in modelling |
+| Covid_data | .ipynb | Code for collecting Covid19 data for US states, and creating train and test datasets |
+
+
+| Maps | folder | Snapshots of heatmaps |
+| DSI Project 5 - Presentation | .pdf | Final presentation of project methods, findings, and predictions |
 | LICENSE | --- | Project license under Creative Commons Legal Code |
-| Google-searches | .ipynb | collection of Google data by state/day to include in modelling |
 
 
