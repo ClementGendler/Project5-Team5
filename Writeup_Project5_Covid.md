@@ -103,5 +103,10 @@ The most important refinements to this work would be:
 **Table of Contents**
 
 | File | Type | Description |
-| --- | --- |
+| --- | --- | --- |
+| README | markdown | Brief description of the project |
+| Writeup_Project5_Covid | markdown | Detailed write up of methods and findings used for the project |
+| LICENSE | --- | Project license under Creative Commons Legal Code |
+| Google-searches | .ipynb | collection of Google data by state/day to include in modelling |
+
 
