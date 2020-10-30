@@ -71,13 +71,13 @@ For the first pass, we tried SARIMA and ARIMA models, however, the high error le
 **The IID model** offers more precision in several ways:
 - enables us to use traditional modeling techniques (regression in particular)
 - allows us to model each individual state using Gridsearch to find the best fitting model for each state. 
-To use the IID model, we created a 7-day lag variable for all features.
+To use the IID model, we created a 7-day lag variable for all features.  Furthermore, the detailed scope of the IID model required us to access "industrial strength" processing power external to our personal machines.  
 
 
 The IID model predicted hotspots in five states for the first week of November, 2020:  Alabama, Wisconsin, Tennessee, North Dakota.  The fifth predicted hot-spot state was New Mexico, which has enjoyed low per-capita Covid19 infections thus far.  Furthermore, IID model predicted the west coast (CA, OR, WA) would not be hot-spots.  
 
 
-### Modeling for Prediction
+### Modeling for Feautre Importance
 With so many variables, we turned to Random Forest to help us understand which of the inputs was more determinative of the model.  Using Random Forest, we generated a feature importance plot, which showed that population was the most important feature when looking at the nation as a whole.  There were a few states, however, for which Google queries were also a top-5 predictor of infections, such as Arkansas.
 
 
@@ -110,7 +110,8 @@ The most important refinements to this work would be:
 | Final_New_Preds_With_Longitude_Latitude | .csv | Combined predictions and geo-location data for use in mapping |
 | Google-searches | .ipynb | Collection of Google data by state/day to include in modelling |
 | Covid_data | .ipynb | Code for collecting Covid19 data for US states, and creating train and test datasets |
-
+| COVID_Prophet(2) | .ipynb | Code for preprocessing data, fit the Prophet model, and create predictions |
+| COVID_IID (1) | .ipynb | Code for preprocessing data, deriving feature importance, fit the IID model and create predictions |
 
 | Maps | folder | Snapshots of heatmaps |
 | DSI Project 5 - Presentation | .pdf | Final presentation of project methods, findings, and predictions |
