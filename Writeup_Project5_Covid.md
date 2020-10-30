@@ -1,27 +1,48 @@
 # Problem Statement
 
-Identify potential Covid hotspots at the US state level, specifically predict CASES based on government response, mobility, and population data, even weather.
+Identify potential Covid hotspots at the US state level, attempt to utilize government response, mobility, and population data, even weather.
 
-Data sets we will use:  
+Data sets we usee:  
 - Covid19 database on GitHub - https://github.com/GoogleCloudPlatform/covid-19-open-data
-- Shape files from US Census
-- Facebook posts
+- Shape files from US Census - CLEMENT
+- Covid-related Google search trends - COIVD-cast from Carnegie-Mellon's Delphi Group, https://covidcast.cmu.edu/?sensor=ght-smoothed_search&level=state&date=20201025&signalType=value&encoding=color&mode=export&region=42003
 
 
 # Executive Summary
 
-...
+This study utilizes Covid19 daily data on confimed cases, population, weather, and Covid-related search activity to create a model which predicts future Covied19 hotspots.  The breadth of the data (over 6 months of daily data for 50 US states) introduces a not-inconsequential amount of complexity.  After testing SARIMA and ARIMA models, we tried two additional models:  Facebook Prophet, and "IID" Model.  Ultimately, we determined that the IID Model yielded the most specific predictions, as it allowed us to fit models specific to each state.  Our docuementation includes heatmaps which visualize for the reader the difference in predictions.  
 
 
 # Data Description and Data Dictionary
 
 For data collection, we used selected several fields available from the Covid 19 Open Data site.  Of the 108 fields offered, we honed in on the fields listed in the data dictionary below.   
 
-| Item | Description | Original Source |
-| --- | --- |
-| _field_ | _description_ | _source_ |
 
+
+| Item | Description |
+| --- | --- |
+| date | date pertaining to the observation |
+| subregion1_name | US state name |
+| new_confirmed | number of new confirmed infections daily |
+| new_deceased | number of deaths due to Covid19 |
+| total_confirmed | total cumulative confirmed infections for each state |
+| total_deceased | total cumulative deaths due to Covid19 per state | 
+| population | total state population, includes detail on age brackets from 0 to 80 years and older | 
+| population_male | total state population of males only |   
+| population_female | total state population of females only |
+| mobility_workplaces | categorical variable for the amount of time spent in workplaces* |
+| average_temperature | temperature (F), including detail on max and min temperature | 
+| rainfall | amount of rain | 
+| dew_point | dew point (F) |
+| relative_humidity | humidity level |
+  
+  
+  
 ...
+
+| Item | Description |
+| --- | --- |
+| title | The headline of each post |
 
 
 We used data from Covid 19 Open Data site, which compiles data for countries world wide, including select provinces such as US states. 
