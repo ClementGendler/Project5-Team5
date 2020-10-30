@@ -2,7 +2,7 @@
 
 Identify potential Covid hotspots at the US state level, attempt to utilize government response, mobility, and population data, even weather.
 
-Data sets we usee:  
+Data sets we used:  
 - Covid19 database on GitHub - https://github.com/GoogleCloudPlatform/covid-19-open-data
 - Shape files from US Census - https://www.kaggle.com/washimahmed/usa-latlong-for-state-abbreviations 
 - Covid-related Google search trends - COVID-cast from Carnegie-Mellon's Delphi Group, https://covidcast.cmu.edu/?sensor=ght-smoothed_search&level=state&date=20201025&signalType=value&encoding=color&mode=export&region=42003
@@ -77,7 +77,7 @@ To use the IID model, we created a 7-day lag variable for all features.  Further
 The IID model predicted hotspots in five states for the first week of November, 2020:  Alabama, Wisconsin, Tennessee, North Dakota.  The fifth predicted hot-spot state was New Mexico, which has enjoyed low per-capita Covid19 infections thus far.  Furthermore, IID model predicted the west coast (CA, OR, WA) would not be hot-spots.  
 
 
-### Modeling for Feautre Importance
+### Modeling for Feature Importance
 With so many variables, we turned to Random Forest to help us understand which of the inputs was more determinative of the model.  Using Random Forest, we generated a feature importance plot, which showed that population was the most important feature when looking at the nation as a whole.  There were a few states, however, for which Google queries were also a top-5 predictor of infections, such as Arkansas.
 
 
@@ -98,9 +98,7 @@ The most important refinements to this work would be:
 
 
 
-
-## Appendix
-**Table of Contents**
+## Table of Contents
 
 | File | Type | Description |
 | --- | --- | --- |
@@ -112,8 +110,9 @@ The most important refinements to this work would be:
 | Covid_data | .ipynb | Code for collecting Covid19 data for US states, and creating train and test datasets |
 | COVID_Prophet(2) | .ipynb | Code for preprocessing data, fit the Prophet model, and create predictions |
 | COVID_IID (1) | .ipynb | Code for preprocessing data, deriving feature importance, fit the IID model and create predictions |
-
-| Maps | folder | Snapshots of heatmaps |
+| data | folder | .csv files for source data, and for capturing predictions
+| maps | folder | Snapshots of heatmaps |
+| archive | folder | destination for retired files |
 | DSI Project 5 - Presentation | .pdf | Final presentation of project methods, findings, and predictions |
 | LICENSE | --- | Project license under Creative Commons Legal Code |
 
